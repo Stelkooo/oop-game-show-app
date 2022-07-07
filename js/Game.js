@@ -12,6 +12,21 @@ class Game {
     }
 
     startGame() {
+        let keyboardBtns = document.querySelectorAll("#qwerty button");
+        
+        for (let btn of keyboardBtns) {
+            btn.classList = "key";
+            btn.disabled = false;
+        }
+
+        this.missed = 0;
+
+        for (let heart of hearts) {
+            heart.children[0].src = "images/liveHeart.png";
+        }
+
+        phraseSection.children[0].innerHTML = "";
+
         startOverlay.style.display = "none";
 
         this.activePhrase = this.getRandomPhrase();
@@ -40,7 +55,6 @@ class Game {
     }
 
     removeLife() {
-        let hearts = document.getElementsByClassName("tries");
         if (this.missed === 4) {
             hearts[this.missed].children[0].src = "images/lostHeart.png";
             this.gameOver("lose");

@@ -4,7 +4,7 @@ class Phrase {
     }
 
     addPhraseToDisplay() {
-        let phraseHTML = "<ul>";
+        let phraseHTML = "";
 
         for (let i of this.phrase) {
             if (i === " ") {
@@ -15,10 +15,8 @@ class Phrase {
     <li class="hide letter ${i}">${i}</li>`;
             }
         }
-        
-        phraseHTML += `
-</ul>`;
-        phraseSection.innerHTML = phraseHTML;
+
+        phraseSection.children[0].innerHTML = phraseHTML;
     }
 
     checkLetter(letter) {
