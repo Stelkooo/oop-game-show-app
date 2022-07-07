@@ -3,6 +3,7 @@ let letters = document.getElementsByClassName("letter");
 let startOverlay = document.getElementById("overlay");
 let startGameBtn = document.getElementById("btn__reset");
 let keyboardSection = document.getElementById("qwerty");
+let keyboardBtns = document.querySelectorAll("#qwerty button");
 let hearts = document.getElementsByClassName("tries");
 const game = new Game();
 /*
@@ -18,4 +19,12 @@ keyboardSection.addEventListener("click", (e) => {
     if (e.target.nodeName === "BUTTON") {
         game.handleInteraction(e.target)
     };
+})
+
+document.addEventListener("keyup", (e) => {
+    for (let btn of keyboardBtns) {
+        if (btn.innerHTML === e.key) {
+            game.handleInteraction(btn);
+        }
+    }
 })

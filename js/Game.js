@@ -20,9 +20,7 @@ class Game {
      * hides the start overlay
      * gets a random and displays on the screen
      */
-    startGame() {
-        let keyboardBtns = document.querySelectorAll("#qwerty button");
-        
+    startGame() {        
         for (let btn of keyboardBtns) {
             btn.classList = "key";
             btn.disabled = false;
