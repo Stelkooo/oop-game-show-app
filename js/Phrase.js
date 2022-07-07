@@ -22,13 +22,14 @@ class Phrase {
     }
 
     checkLetter(letter) {
-        for (const i of this.phrase) {
-            if (letter === i) {
-                return true;
-            } else {
-                return false;
+        let isLetterInPhrase = false;
+        for (let i = 0; i < this.phrase.length; i++) {
+            const element = this.phrase[i];
+            if (element === letter) {
+                isLetterInPhrase = true;
             }
         }
+        return isLetterInPhrase;
     }
 
     showMatchedLetter(letter) {
