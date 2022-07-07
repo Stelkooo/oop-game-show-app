@@ -2,7 +2,9 @@ class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
-
+    /**
+     * adds the phrase to the game display
+     */
     addPhraseToDisplay() {
         let phraseHTML = "";
 
@@ -18,7 +20,11 @@ class Phrase {
 
         phraseSection.children[0].innerHTML = phraseHTML;
     }
-
+    /**
+     * checks whether the letter is contained within the phrase
+     * @param {String} letter - letter pressed by player 
+     * @returns {boolean}
+     */
     checkLetter(letter) {
         let isLetterInPhrase = false;
         for (let i = 0; i < this.phrase.length; i++) {
@@ -29,7 +35,10 @@ class Phrase {
         }
         return isLetterInPhrase;
     }
-
+    /**
+     * shows the letter if the user got it right
+     * @param {String} letter - letter pressed by player 
+     */
     showMatchedLetter(letter) {        
         for (let item of letters) {
             if (item.classList.contains(letter)) {
