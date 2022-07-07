@@ -4,7 +4,6 @@ class Phrase {
     }
 
     addPhraseToDisplay() {
-        let phraseSection = document.getElementById("phrase");
         let phraseHTML = "<ul>";
 
         for (let i of this.phrase) {
@@ -28,6 +27,16 @@ class Phrase {
                 return true;
             } else {
                 return false;
+            }
+        }
+    }
+
+    showMatchedLetter(letter) {
+        let letters = document.getElementsByClassName("letter");
+        
+        for (let item of letters) {
+            if (item.classList.contains(letter)) {
+                item.classList.replace("hide", "show");
             }
         }
     }
