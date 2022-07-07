@@ -12,7 +12,6 @@ class Game {
     }
 
     startGame() {
-        let startOverlay = document.getElementById("overlay");
         startOverlay.style.display = "none";
 
         this.activePhrase = this.getRandomPhrase();
@@ -44,7 +43,7 @@ class Game {
         let hearts = document.getElementsByClassName("tries");
         if (this.missed === 4) {
             hearts[this.missed].children[0].src = "images/lostHeart.png";
-            this.gameOver();
+            this.gameOver("lose");
         } else {
             hearts[this.missed].children[0].src = "images/lostHeart.png";
         }
@@ -59,11 +58,23 @@ class Game {
             }
         }
         if (lettersShowing === letters.length) {
-            this.gameOver();
+            this.gameOver("win");
         }
     }
 
-    gameOver() {
-        
+    gameOver(winOrLose) {
+        let h1 = document.getElementById("game-over-message");
+
+        switch (winOrLose) {
+            case "win":
+                h1.innerHTML = "you guessed the phrase";
+                startOverlay.classList.add("win");
+                break;
+            case "lose":
+                h1.innerHTML = "you did not guess the phrase";
+                startOverlay.classList.add("lose");
+                break;
+        }
+        startOverlay.style.display = "flex";
     }
 }
