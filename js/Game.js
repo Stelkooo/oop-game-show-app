@@ -18,9 +18,37 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         
         this.activePhrase.addPhraseToDisplay();
+        console.log(this.activePhrase.phrase);
     }
 
     getRandomPhrase() {
         return this.phrases[(Math.floor(Math.random() * 5))];
+    }
+
+    handleInteraction(btn) {
+        let btnLtr = btn.innerHTML;
+        
+        btn.disabled = true;
+
+        if (this.activePhrase.checkLetter(btnLtr)) {
+            btn.classList.add("chosen");
+            this.activePhrase.showMatchedLetter(btnLtr);
+            this.checkWin();
+        } else {
+            btn.classList.add("wrong");
+            this.removeLife();
+        }
+    }
+
+    removeLife() {
+
+    }
+
+    checkWin() {
+
+    }
+
+    gameOver() {
+
     }
 }
