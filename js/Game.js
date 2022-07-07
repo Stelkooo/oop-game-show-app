@@ -41,7 +41,14 @@ class Game {
     }
 
     removeLife() {
-
+        let hearts = document.getElementsByClassName("tries");
+        if (this.missed === 4) {
+            hearts[this.missed].children[0].src = "images/lostHeart.png";
+            this.gameOver();
+        } else {
+            hearts[this.missed].children[0].src = "images/lostHeart.png";
+        }
+        this.missed++;
     }
 
     checkWin() {
@@ -49,6 +56,6 @@ class Game {
     }
 
     gameOver() {
-
+        
     }
 }
