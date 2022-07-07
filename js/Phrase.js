@@ -21,4 +21,14 @@ class Phrase {
 </ul>`;
         phraseSection.innerHTML = phraseHTML;
     }
+
+    checkLetter(letter) {
+        for (const i of this.phrase) {
+            if (letter === i) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
