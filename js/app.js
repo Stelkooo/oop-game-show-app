@@ -20,7 +20,10 @@ keyboardSection.addEventListener("click", (e) => {
         game.handleInteraction(e.target)
     };
 })
-
+/**
+ * listens for any keyboard presses
+ * it gets the key pressed and passes the btn associated with it to the handleInteraction method
+ */
 document.addEventListener("keyup", (e) => {
     for (let btn of keyboardBtns) {
         if (btn.innerHTML === e.key) {
