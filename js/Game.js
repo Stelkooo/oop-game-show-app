@@ -1,5 +1,5 @@
 class Game {
-    constructor () {
+    constructor() {
         this.missed = 0;
         this.phrases = [
             new Phrase("Down To Earth"),
@@ -9,5 +9,14 @@ class Game {
             new Phrase("Jumping The Gun")
         ];
         this.activePhrase = null;
+    }
+
+    startGame() {
+        let startOverlay = document.getElementById("overlay");
+        startOverlay.style.display = "none";
+
+        this.activePhrase = this.getRandomPhrase();
+        
+        this.activePhrase.addPhraseToDisplay();
     }
 }
