@@ -52,7 +52,15 @@ class Game {
     }
 
     checkWin() {
-
+        let lettersShowing = 0;
+        for (let item of letters) {
+            if (item.classList.contains("show")) {
+                lettersShowing++;
+            }
+        }
+        if (lettersShowing === letters.length) {
+            this.gameOver();
+        }
     }
 
     gameOver() {

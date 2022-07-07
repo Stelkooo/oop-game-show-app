@@ -32,9 +32,7 @@ class Phrase {
         return isLetterInPhrase;
     }
 
-    showMatchedLetter(letter) {
-        let letters = document.getElementsByClassName("letter");
-        
+    showMatchedLetter(letter) {        
         for (let item of letters) {
             if (item.classList.contains(letter)) {
                 item.classList.replace("hide", "show");
