@@ -19,4 +19,8 @@ class Game {
         
         this.activePhrase.addPhraseToDisplay();
     }
+
+    getRandomPhrase() {
+        return this.phrases[(Math.floor(Math.random() * 5))];
+    }
 }
