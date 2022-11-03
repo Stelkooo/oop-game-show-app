@@ -8,14 +8,13 @@ class Game {
             "A Piece of Cake",
             "Jumping The Gun",
         ];
-        this.activePhrase = null;
+        this.activePhrase = new Phrase("null");
     }
     startGame() {
         const startScreenOverlay = document.getElementById('overlay');
         startScreenOverlay.style.display = 'none';
-        this.activePhrase = this.getRandomPhrase();
-        const phrase = new Phrase(this.activePhrase);
-        phrase.addPhraseToDisplay();
+        this.activePhrase.phrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
     }
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * 5)];
