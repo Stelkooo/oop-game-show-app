@@ -32,4 +32,12 @@ class Game {
             }
         }
     }
+    removeLife() {
+        const hearts = document.querySelectorAll('.tries img');
+        hearts[hearts.length - 1 - this.missed].src = "images/lostHeart.png";
+        this.missed++;
+        if (this.missed === 5) {
+            gameOver();
+        }
+    }
 }
