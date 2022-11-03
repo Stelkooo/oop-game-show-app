@@ -16,4 +16,7 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         const phrase = new Phrase(this.activePhrase);
     }
+    getRandomPhrase() {
+        return this.phrases[Math.floor(Math.random() * 5)];
+    }
 }
