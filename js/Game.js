@@ -10,4 +10,10 @@ class Game {
         ];
         this.activePhrase = null;
     }
+    startGame() {
+        const startScreenOverlay = document.getElementById('overlay');
+        startScreenOverlay.style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        const phrase = new Phrase(this.activePhrase);
+    }
 }
