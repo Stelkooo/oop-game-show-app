@@ -19,4 +19,17 @@ class Game {
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * 5)];
     }
+    handleInteraction(btn) {
+        btn.disabled = true;
+        if (this.activePhrase.checkLetter(btn.innerHTML) = false) {
+            btn.classList.add('wrong');
+            this.removeLife();
+        } else {
+            btn.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(btn.innerHTML);
+            if (this.checkForWin() = true) {
+                this.gameOver();
+            }
+        }
+    }
 }
