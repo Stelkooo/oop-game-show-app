@@ -1,10 +1,11 @@
+let phraseUl = document.querySelector('#phrase ul');
+
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     }
     addPhraseToDisplay() {
         let phraseHTML = ``;
-        let phraseUl = document.querySelector('#phrase ul');
         for (let i = 0; i < this.phrase.length; i++) {
             if (this.phrase[i] === ' ') {
                 phraseHTML += `<li class="space"> </li>`;
@@ -16,5 +17,13 @@ class Phrase {
     }
     checkLetter(letter) {
         return this.phrase.includes(letter);
+    }
+    showMatchedLetter(letter) {
+        for (let i = 0; i < phraseUl.children.length; i++) {
+            const char = phraseUl.children[i];
+            if (char.innerHTML === letter) {
+                char.classList.replace('hide', 'show');
+            }
+        }
     }
 }
