@@ -12,4 +12,7 @@ class Phrase {
             }
         }
     }
+    checkLetter(letter) {
+        return this.phrase.includes(letter);
+    }
 }
