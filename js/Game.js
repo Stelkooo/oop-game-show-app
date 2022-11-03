@@ -13,7 +13,7 @@ class Game {
     startGame() {
         const startScreenOverlay = document.getElementById('overlay');
         startScreenOverlay.style.display = 'none';
-        this.activePhrase.phrase = this.getRandomPhrase();
+        this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
         this.activePhrase.addPhraseToDisplay();
     }
     getRandomPhrase() {
@@ -38,6 +38,21 @@ class Game {
         this.missed++;
         if (this.missed === 5) {
             gameOver();
+        }
+    }
+    checkForWin() {
+        const phraseLetters = document.getElementsByClassName('letter');
+        let lettersShown = 0;
+        for (let i = 0; i < phraseLetters.length; i++) {
+            const e = phraseLetters[i];
+            if (e.classList.contains('show')) {
+                lettersShown++;
+            }
+        }
+        if (lettersShown === phraseLetters.length) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
