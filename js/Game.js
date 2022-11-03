@@ -1,5 +1,5 @@
 const startScreenOverlay = document.getElementById('overlay');
-
+const keys = document.getElementsByClassName('key');
 class Game {
     constructor() {
         this.missed = 0;
@@ -14,6 +14,10 @@ class Game {
     }
     startGame() {
         phraseUl.innerHTML = '';
+        for (const key of keys) {
+            key.disabled = false;
+            key.classList = 'key';
+        }
         startScreenOverlay.style.display = 'none';
         this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
         this.activePhrase.addPhraseToDisplay();
