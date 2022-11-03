@@ -15,6 +15,7 @@ class Game {
         startScreenOverlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         const phrase = new Phrase(this.activePhrase);
+        phrase.addPhraseToDisplay();
     }
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * 5)];
