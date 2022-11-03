@@ -1,5 +1,4 @@
 const startScreenOverlay = document.getElementById('overlay');
-const keys = document.getElementsByClassName('key');
 const hearts = document.querySelectorAll('.tries img');
 class Game {
     constructor() {
