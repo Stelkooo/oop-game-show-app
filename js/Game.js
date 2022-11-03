@@ -13,6 +13,7 @@ class Game {
         this.activePhrase = new Phrase('null');
     }
     startGame() {
+        phraseUl.innerHTML = '';
         startScreenOverlay.style.display = 'none';
         this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
         this.activePhrase.addPhraseToDisplay();
