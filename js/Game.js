@@ -10,7 +10,7 @@ class Game {
             "A Piece of Cake",
             "Jumping The Gun",
         ];
-        this.activePhrase = new Phrase("null");
+        this.activePhrase = new Phrase('null');
     }
     startGame() {
         startScreenOverlay.style.display = 'none';
@@ -22,15 +22,13 @@ class Game {
     }
     handleInteraction(btn) {
         btn.disabled = true;
-        if (this.activePhrase.checkLetter(btn.innerHTML) = false) {
-            btn.classList.add('wrong');
-            this.removeLife();
-        } else {
+        if (this.activePhrase.checkLetter(btn.innerHTML)) {
             btn.classList.add('chosen');
             this.activePhrase.showMatchedLetter(btn.innerHTML);
-            if (this.checkForWin() = true) {
-                this.gameOver();
-            }
+            this.checkForWin();
+        } else {           
+            btn.classList.add('wrong');
+            this.removeLife();
         }
     }
     removeLife() {
