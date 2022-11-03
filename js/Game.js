@@ -1,3 +1,5 @@
+const startScreenOverlay = document.getElementById('overlay');
+
 class Game {
     constructor() {
         this.missed = 0;
@@ -11,7 +13,6 @@ class Game {
         this.activePhrase = new Phrase("null");
     }
     startGame() {
-        const startScreenOverlay = document.getElementById('overlay');
         startScreenOverlay.style.display = 'none';
         this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
         this.activePhrase.addPhraseToDisplay();
@@ -37,7 +38,7 @@ class Game {
         hearts[hearts.length - 1 - this.missed].src = "images/lostHeart.png";
         this.missed++;
         if (this.missed === 5) {
-            gameOver();
+            this.gameOver('lose');
         }
     }
     checkForWin() {
@@ -50,9 +51,18 @@ class Game {
             }
         }
         if (lettersShown === phraseLetters.length) {
-            return true;
-        } else {
-            return false;
+            this.gameOver('win');
+        }
+    }
+    gameOver(result) {
+        const gameOverMessage = document.getElementById('game-over-message');
+        startScreenOverlay.style.display = 'flex';
+        if (result === 'win') {
+            gameOverMessage.innerHTML = "Congrats, you won!";
+            startScreenOverlay.classList = 'win';
+        } else if (result === 'lose') {
+            gameOverMessage.innerHTML = "You lost, try again!";
+            startScreenOverlay.classList = 'lose';
         }
     }
 }
