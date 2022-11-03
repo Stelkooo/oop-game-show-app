@@ -1,5 +1,6 @@
 const startScreenOverlay = document.getElementById('overlay');
 const keys = document.getElementsByClassName('key');
+const hearts = document.querySelectorAll('.tries img');
 class Game {
     constructor() {
         this.missed = 0;
@@ -17,6 +18,10 @@ class Game {
         for (const key of keys) {
             key.disabled = false;
             key.classList = 'key';
+        }
+        this.missed = 0;
+        for (let heart of hearts) {
+            heart.src = "images/liveHeart.png";
         }
         startScreenOverlay.style.display = 'none';
         this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
@@ -37,7 +42,6 @@ class Game {
         }
     }
     removeLife() {
-        const hearts = document.querySelectorAll('.tries img');
         hearts[hearts.length - 1 - this.missed].src = "images/lostHeart.png";
         this.missed++;
         if (this.missed === 5) {
