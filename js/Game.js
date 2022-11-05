@@ -4,13 +4,13 @@ class Game {
     constructor() {
         this.missed = 0;
         this.phrases = [
-            "Down To Earth",
-            "Shot In The Dark",
-            "Go For Broke",
-            "A Piece of Cake",
-            "Jumping The Gun",
+            new Phrase("Down To Earth"),
+            new Phrase("Shot In The Dark"),
+            new Phrase("Go For Broke"),
+            new Phrase("A Piece of Cake"),
+            new Phrase("Jumping The Gun"),
         ];
-        this.activePhrase = new Phrase('null');
+        this.activePhrase = null;
     }
     /**
      * starts a new game
@@ -33,7 +33,7 @@ class Game {
             heart.src = "images/liveHeart.png";
         }
         startScreenOverlay.style.display = 'none';
-        this.activePhrase.phrase = this.getRandomPhrase().toLowerCase();
+        this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
     }
     /**
