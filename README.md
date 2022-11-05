@@ -7,3 +7,10 @@ It is uses JavaScript with a OOP approach to select a random hidden phrase which
 It uses two classes Game and Phrase.
 
 The Game class is used to manage the game while the Phrase class deals with the phrase randomly selected
+
+I changed a few things about the styling of the game, they include:
+- The initial starting overlay background colour
+- Font
+- Keyboard buttons transition and colour when they are pressed
+- The colour and way letters from the phrase get revealed
+- Win and lose colour overlay
