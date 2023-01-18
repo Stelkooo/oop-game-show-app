@@ -7,7 +7,7 @@
 <h3 align="center">OOP Game Show App - Phrase Hunter</h3>
 
   <p align="center">
-    <a href="https://client-production-277d.up.railway.app/">View Demo</a>
+    <a href="https://stelkooo.github.io/oop-game-show-app/">View Demo</a>
 </div>
 
 <!-- TABLE OF CONTENTS -->
